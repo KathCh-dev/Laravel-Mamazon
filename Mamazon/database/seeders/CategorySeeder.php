@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\CategoryModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -33,10 +33,10 @@ class CategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            CategoryModel::create([
+            Category::create([
                 'id_category' => \Str::uuid(), // generate a unique UUID
                 'category_title' => $category['category_title'],
-                'slug' => \Str::slug($category['category_title']), //slugify the name
+                'category_slug' => \Str::slug($category['category_title']), //slugify the name
                 'category_description' => $category['category_description'],
             ]);
         }

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\ProductModel;
-use App\..\Database\Seeders\CategorySeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
+use App\Models\Category;
 
 class ProductSeeder extends Seeder
 {
@@ -35,15 +35,17 @@ class ProductSeeder extends Seeder
             ],
         ];
 
-        foreach ($products as $product) {
-            ProductModel::create([
+        foreach($categories as $category){
+            foreach ($products as $product) {
+            Product::create([
             'id_product' => \Str::uuid(),
             'product_title' => $product['product_title'],
             'slug' => \Str::slug($product['product_title']),
             'product_description' => $product['product_description'],
             'price' => $product['price'],
-            'id_category' => $product['id_category'],
+            'id_category' => $category[$category.$id_category],
             ]);
+            }
         }
     }
 }

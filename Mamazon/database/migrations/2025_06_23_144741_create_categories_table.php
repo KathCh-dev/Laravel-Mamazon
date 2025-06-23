@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('category_title');
             $table->string('category_slug')->unique();
             $table->text('category_description')->nullable();
-            $table->created_at('creation_date');
-            $table->updated_at('updated_date');
+            $table->timestamps();
         });
     }
 
