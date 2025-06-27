@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('product_slug');
             $table->text('product_description');
             $table->double('price');
-            $table->string('product_image');
+            // $table->string('product_image');
             $table->timestamps();            
 
             $table->string('id_category');
