@@ -11,7 +11,7 @@
             @foreach ($products as $product)
                 <div class="col-md-4 mb-4">
                     <div class="card task-card p-3">
-                        <a href=""><h5 class="card-title">{{ $product->product_title }}</h5></a>
+                        <a href="{{ route('product.show', $product->product_slug) }}}"><h5 class="card-title">{{ $product->product_title }}</h5></a>
                         <p class="card-text">{{ $product->product_desccription }}</p>
                         <p><strong>Prix : </strong>{{ number_format($product->price) }}€</p>
                         <a href="" class="task-link">Voir le produit</a>
